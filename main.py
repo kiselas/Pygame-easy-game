@@ -27,11 +27,11 @@ RED_SPACESHIP = pygame.transform.rotate(
 def yellow_handle_movement(keys_pressed, yellow):
     if keys_pressed[pygame.K_a] and yellow.x - VEL > 0:  # left
         yellow.x -= VEL
-    if keys_pressed[pygame.K_d] and yellow.x - VEL < (WIDTH-SPACESHIP_WIDTH):  # right
+    if keys_pressed[pygame.K_d] and yellow.x + VEL + yellow.width < BORDER.x:  # right
         yellow.x += VEL
-    if keys_pressed[pygame.K_w]:  # up
+    if keys_pressed[pygame.K_w] and yellow.y - VEL > 0:  # up
         yellow.y -= VEL
-    if keys_pressed[pygame.K_s]:  # down
+    if keys_pressed[pygame.K_s] and yellow.y + VEL + yellow.width < HEIGHT:   # down
         yellow.y += VEL
 
 def red_handle_movement(keys_pressed, red):
